@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Модель регрессии</title>
+</head>
+<h2>Стоимость квартиры в Москве</h2>
+<body>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Введите критерии поиска:</legend>
+        <h4>Признаки для определения стоимости:</h4>
+        <p>Общая площадь квартирыб кв.м.</p>
+        <input name="totsp" type="number" step="any" required>
+        <p>Жилая площадь квартиры, кв.м.</p>
+        <input name="livesp" type="number" step="any" required>
+        <p>площадь кухни, кв.м.</p>
+        <input name="kitsp" type="number" step="any" required>
+        <p>расстояние от центра в км.</p>
+        <input name="dist" type="number" step="any" required>
+        <p>расстояние до метро в минутах</p>
+        <input name="metrdist" type="number" step="any" required>
+        <p>1 - пешком от метро, 0 – на транспорте</p>
+        <input name="walk" type="number" required>
+        <p>кирпичный, монолит ж/б, 0 – другой</p>
+        <input name="brick" type="number" required>
+        <p>1 - этаж кроме первого и последнего, 0 – иначе.</p>
+        <input name="floor" type="number" required>
+        <p>число от 1 до 8, при помощи которого мы <br>группируем наблюдения по подвыборкам</p>
+        <input name="code" type="number" required>
+        <br>
+        <br>
+        <input name="Рассчитать" type="submit">
+    </fieldset>
+</form>
+<div class="result" align="center">
+    {% if result %}
+    	<br> <p style="font-size:35px">Рассчитанная стоимость квартиры:</p>
+   		<p style="font-size:35px">{{ result }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
