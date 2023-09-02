@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import flask
 import pickle
+import numpy as np
 import sklearn
 
 app = Flask(__name__, template_folder='templates')
@@ -24,8 +25,8 @@ def main():
         floor = int(flask.request.form['floor'])
         code = int(flask.request.form['code'])
 
-        price = loaded_model.predict([[totsp, livesp, kitsp, dist, code, metrdist, walk, floor]])
-        return render_template('my_model.html', result=price)
+        price = np.round(loaded_model.predict([[totsp, livesp, kitsp, dist, code, metrdist, walk, floor]]), 2)
+        return render_template('my_model.html', result=price[0])
 
 if __name__ == '__main__':
     app.run()

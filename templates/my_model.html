@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Модель регрессии</title>
+    <title>Прогнозирование цены квартиры</title>
 </head>
 <h2>Стоимость квартиры в Москве</h2>
 <body>
@@ -22,7 +22,7 @@
         <input name="metrdist" type="number" step="any" required>
         <p>1 - пешком от метро, 0 – на транспорте</p>
         <input name="walk" type="number" required>
-        <p>кирпичный, монолит ж/б, 0 – другой</p>
+        <p>1 - кирпичный, монолит ж/б, 0 – другой</p>
         <input name="brick" type="number" required>
         <p>1 - этаж кроме первого и последнего, 0 – иначе.</p>
         <input name="floor" type="number" required>
@@ -35,8 +35,7 @@
 </form>
 <div class="result" align="center">
     {% if result %}
-    	<br> <p style="font-size:35px">Рассчитанная стоимость квартиры:</p>
-   		<p style="font-size:35px">{{ result }}</p>
+    	<br> <p style="font-size:35px">Прогнозируемая стоимость квартиры: тыс. ${{ result }} </p>
     {% endif %}
 </div>
 </body>
