@@ -1,2 +1,2 @@
-# HerokuFirst
-Ten homeWork
+# FirstApp
+Deploy app on git
